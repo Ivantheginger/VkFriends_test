@@ -34,16 +34,16 @@ def home():
         if request.form.getlist("submit")[0] == "Log Out":
             vk_session.token['access_token'] = None
             vk_session.token['user_id'] = None
-            print("LOG OUT CLICKED")
+
 
     if vk_session.token['access_token']:
         vk = vk_session.get_api()
         user_info = vk.users.get(user_id=vk_session.token['user_id'], fields='photo_max_orig')[0]
-        print(user_info)
         user_full_name = user_info['first_name'] + ' ' + user_info['last_name']
         photo = user_info['photo_max_orig']
+        vk_friends_count = vk.friends.get()['count']
         return render_template("index.html", photo=photo, search_result=search_result,
-                               user_full_name=user_full_name)
+                               user_full_name=user_full_name, vk_friends_count=vk_friends_count)
 
     return render_template("index.html")
 

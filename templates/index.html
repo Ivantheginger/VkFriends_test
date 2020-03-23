@@ -8,11 +8,14 @@
 
 
 {% if user_full_name %}
+    <h1> {{ user_full_name }}</h1>
     <div>
-        <h1> {{ user_full_name }}</h1>
         <form method="POST">
             <input  type="submit" value="Log Out" name = "submit">
         </form>
+    </div>
+    <div>
+        <p> Количество друзей: {{ vk_friends_count }}</p>
     </div>
 {%  endif %}
 {% if photo %}
