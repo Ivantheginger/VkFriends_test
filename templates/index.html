@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FriendsSearch</title>
+</head>
+<body>
+
+
+{% if user_full_name %}
+    <div>
+        <h1> {{ user_full_name }}</h1>
+        <form method="POST">
+            <input  type="submit" value="Log Out" name = "submit">
+        </form>
+    </div>
+{%  endif %}
+{% if photo %}
+    <img src="{{ photo }}">
+{% endif %}
+
+
+{% if not user_full_name %}
+    <form action="" method="POST">
+        <input type="submit" value="Log in" name="submit"></div>
+    </form>
+{% else %}
+<div>
+<form method="POST">
+    <input name="text">
+    <input  type="submit" value="search" name = "submit">
+</form>
+{% endif %}
+
+
+{% if search_result %}
+    <div>
+        {% for friend in search_result %}
+            <p> {{ friend }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+</body>
+</html>
