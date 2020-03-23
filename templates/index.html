@@ -2,47 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FriendsSearch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
+<div class='container'>
+    <div class='right'>
 
+    </div>
+    <div class='left'>
 
-{% if user_full_name %}
-    <h1> {{ user_full_name }}</h1>
-    <div>
-        <form method="POST">
-            <input  type="submit" value="Log Out" name = "submit">
-        </form>
     </div>
-    <div>
-        <p> Количество друзей: {{ vk_friends_count }}</p>
-    </div>
-{%  endif %}
-{% if photo %}
-    <img src="{{ photo }}">
-{% endif %}
+    <div class='middle'>
+
 
 
 {% if not user_full_name %}
-    <form action="" method="POST">
-        <input type="submit" value="Log in" name="submit"></div>
+    <form action="" method="POST" id="Log_in_form">
+        <input type="submit" value="Log in" name="submit" id="Log_in_button"></div>
     </form>
-{% else %}
-<div>
-<form method="POST">
-    <input name="text">
-    <input  type="submit" value="search" name = "submit">
-</form>
 {% endif %}
 
+{% if user_full_name %}
 
+<div class="container-fluid container">
+    <div class="row" id="name-and-log-row">
+        <div class="col-xs-6">
+            <h1> {{ user_full_name }}</h1>
+        </div>
+        <div class="col-xs-6" id="Log_out_container">
+            <form method="POST" id="Log_out_form">
+                <input  type="submit" value="Log Out" name = "submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+{%  endif %}
+{% if photo %}
+    <div id="photo">
+        <img src="{{ photo }}">
+    </div>
+{% endif %}
+
+{% if user_full_name %}
+<div class="container-fluid" id="friend_container">
+
+    <div class="row" id="friends_container_row">
+        <div class="col-xs-8">
+            <p> Количество друзей: {{ vk_friends_count }}</p>
+        </div>
+
+        <div class="col-xs-8">
+            <form method="POST" id="search_friends">
+                <input name="text">
+                <input  type="submit" value="search" name = "submit">
+            </form>
+        </div>
+    </div>
+
+{% endif %}
 {% if search_result %}
-    <div>
+    <div class="container">
         {% for friend in search_result %}
             <p> {{ friend }}</p>
         {% endfor %}
     </div>
 {% endif %}
-
+    </div>
+    </div>
+</div>
 </body>
 </html>
