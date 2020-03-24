@@ -43,3 +43,6 @@ html, body {
     padding-left: 8px;
     overflow: hidden
 }
+#photo{
+    max-width: 80%;
+}
