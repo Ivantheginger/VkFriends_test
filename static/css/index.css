@@ -28,48 +28,18 @@ html, body {
 
 #Log_out_form{
 
-    padding-left: 3%;
+    padding-left: 10px;
+    padding-top: 20%;
 
-}
-
-
-#photo{
-    align-items: center;
-    margin-right: 25%;
-    float: right;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-#friend_container{
-    display: inline-block;
-    vertical-align: middle;
-    padding-top: 15px;
-    
 }
 #name-and-log-row{
     align-items: center;
-    margin-right: 25%;
-    float: right;
-}
-.container {
-    overflow: hidden;
-}
-.right {
-    float: right;
-    width: 10%;
-
-}
-.left {
-    float: left;
-    width: 10%;
-
-    background-color: black;
-}
-.middle {
-    margin: 0 10%;
-    height: 100%;
 }
 
+#friends_container_row{
+    margin-top: 5%;
+}
 #search_friends{
-    padding-left: 2%;
+    padding-left: 8px;
+    overflow: hidden
 }
